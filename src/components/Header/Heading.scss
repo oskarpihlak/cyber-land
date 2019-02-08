@@ -1,0 +1,20 @@
+.heading {
+  display: grid;
+  grid-column: full-start / full-end;
+  background-color: #333;
+  grid-template-columns: repeat(8, minmax(min-content, 1fr));
+  grid-auto-rows: max-content;
+  grid-gap: 1rem;
+
+  &__title {
+    color: white;
+    grid-column: 3/ 7;
+    align-self: center;
+    justify-self: center;
+    font-size: 6rem;
+    text-align: center;
+    padding: 0.5rem;
+    text-transform: uppercase;
+
+  }
+}
