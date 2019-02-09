@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import Heading from './components/Header/Heading.js';
+import Heading from './components/Heading/Heading.js';
 import './App.scss';
+import Cyphering from "./components/Cyphering/Cyphering";
+import Introduction from "./components/Introduction/Introduction";
+import Footer from "./components/Footer/Footer";
 
 class App extends Component {
   render() {
@@ -11,6 +14,9 @@ class App extends Component {
         </header>
           <div className="container">
             <Heading/>
+            <Introduction/>
+            <Cyphering/>
+            <Footer/>
           </div>
       </div>
     );

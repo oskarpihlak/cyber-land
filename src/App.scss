@@ -1,16 +1,21 @@
+@import "assets/scss/base";
+
 *,
-*::before,
-*::after {
-  font-size: 67.5%; //1rem = 10px
-  color: black;
-  padding: 0;
+*::after,
+*::before {
   margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px -> 1 rem = 10px
+}
 
 .container{
   display: grid;
-  grid-template-columns: [full-start] minmax(4rem, 1fr) [middle-start] repeat(6, minmax(4rem, 1fr)) [middle-end] minmax(4rem, 1fr) [full-end];
-  grid-auto-rows: minmax(min-content, max-content);
-  grid-gap: 1rem;
+  grid-template-columns: [full-start] minmax(4rem, 1fr) [middle-start] repeat(6, [col-start] minmax(4rem, 1fr) [col-end])
+  [middle-end] minmax(4rem, 1fr) [full-end];
+
 }

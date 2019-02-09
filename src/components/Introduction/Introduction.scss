@@ -1,0 +1,30 @@
+@import "../../assets/scss/base";
+.description-grid{
+  display: grid;
+  grid-column: full-start/ full-end;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, 4vw);
+  grid-gap: 1.5rem;
+
+  &__item{
+    &--1{
+      grid-row: 1/span 7;
+      grid-column: 4/span 4;
+    }
+    &--2{
+      grid-row: 1/span 7;
+      grid-column: 2/span 3;
+      background: linear-gradient(to bottom right, $color-primary, $color-primary-light);
+      clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+    }
+  }
+  &__img{
+    background-image: url("../../assets/images/Threat-768x553.jpg"), linear-gradient(to bottom right, $color-primary-dark, $color-primary-light);
+    background-blend-mode: initial;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
