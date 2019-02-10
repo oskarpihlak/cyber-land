@@ -8,7 +8,10 @@ export default class Introduction extends Component {
                     <div className="description-grid__item--1">
                         <div className="description-grid__img"> </div>
                     </div>
-                    <div className="description-grid__item--2"> </div>
+                    <div className="description-grid__item--2">
+                        <input className="description-grid__mes" type="text"/>
+                        <input type="text"/>
+                    </div>
             </section>
         );
     }
