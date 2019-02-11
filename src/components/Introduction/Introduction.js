@@ -13,6 +13,7 @@ class Introduction extends Component {
       message: null,
       key: null,
       result: null,
+      alphabet: 'abcdefghijklmnopqrstuvwxyz',
     };
   }
 
@@ -47,14 +48,17 @@ class Introduction extends Component {
       if ((this.state.message.length === this.state.key.length) && this.state.message.length > 0) {
         let encryptedMessage = '';
         for (let i = 0; i < this.state.message.length; i++) {
-          encryptedMessage += (String.fromCharCode(((this.state.message.charCodeAt(i) - 97) + (this.state.key.charCodeAt(i) - 97) % 26) + 97));
+          const newCharCode = (this.state.alphabet.indexOf(this.state.message[i]) + this.state.alphabet.indexOf(this.state.key[i])) % 26;
+          encryptedMessage += this.state.alphabet[newCharCode];
         }
         this.setState({...this.state, result: encryptedMessage});
       }
     } else {
       let decryptedMessage = '';
       for (let i = 0; i < this.state.message.length; i++) {
-        decryptedMessage += (String.fromCharCode(((this.state.message.charCodeAt(i) - 97) - (this.state.key.charCodeAt(i) - 97) % 26) + 97));
+        let newCharCode = (this.state.alphabet.indexOf(this.state.message[i]) - this.state.alphabet.indexOf(this.state.key[i]));
+        if (newCharCode < 0) newCharCode += 26;
+        decryptedMessage += this.state.alphabet[newCharCode % 26];
       }
       this.setState({...this.state, result: decryptedMessage});
     }
