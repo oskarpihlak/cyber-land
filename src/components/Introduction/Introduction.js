@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { OTP, SHA2, MD5 } from '../../actions/types';
 import PropTypes from 'prop-types';
 const crypto = require('crypto');
-const fs = require('fs');
+const sha512 = require('js-sha512');
 
 class Introduction extends Component {
   constructor(props) {
@@ -69,9 +69,7 @@ class Introduction extends Component {
   }
 
   sha2Encription() {
-    const key = crypto.pbkdf2Sync('secret', 'salt', 100000, 64, 'sha512');
-    this.setState({...this.state, result: key.toString('base64')});
-    console.log(this.state);
+    this.setState({...this.state, result: btoa(sha512('hello'))});
   }
 
   md5Encription() {
