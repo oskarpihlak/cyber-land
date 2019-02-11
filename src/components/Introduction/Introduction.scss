@@ -103,6 +103,7 @@
     overflow-wrap: break-word;
     color: #fff;
     font-family: $font-display;
+    text-align: center;
     @media (max-width: $bp-medium-large) {
       margin: 0.5rem;
       width: 80%;
