@@ -22,11 +22,9 @@ class Introduction extends Component {
       ...this.state,
       [element]: document.querySelector(`#cryption-${element}`).value,
     });
-    console.log(`state update ${element}`);
   }
 
   chooseCription() {
-    console.log(this.state);
     switch (this.props.cryptionType) {
     case OTP:
       this.otpCryption();

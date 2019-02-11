@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="547e4304-ad57-440a-be36-76bf148f4c1a" name="Default Changelist" comment="fixed otp decrypt">
+    <list default="true" id="547e4304-ad57-440a-be36-76bf148f4c1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Introduction/Introduction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Introduction/Introduction.js" afterDir="false" />
     </list>
@@ -22,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Introduction/Introduction.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+            <state relative-caret-position="-607">
+              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -100,7 +100,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="814" />
     <option name="height" value="867" />
@@ -249,7 +249,7 @@
       <workItem from="1549737205472" duration="10154000" />
       <workItem from="1549784149936" duration="6916000" />
       <workItem from="1549798223240" duration="16585000" />
-      <workItem from="1549871682548" duration="21706000" />
+      <workItem from="1549871682548" duration="26828000" />
     </task>
     <task id="LOCAL-00001" summary="message">
       <created>1549547406294</created>
@@ -349,21 +349,35 @@
       <option name="project" value="LOCAL" />
       <updated>1549916020575</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="edgecase fix">
+      <created>1549917159346</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1549917159346</updated>
+    </task>
+    <task id="LOCAL-00016" summary="edgecase fix">
+      <created>1549924726266</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1549924726266</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79577000" />
+    <option name="totallyTimeSpent" value="84699000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="793" y="0" width="814" height="867" extended-state="0" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="2" weight="0.28514588" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.31101814" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.30683404" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.3293556" />
@@ -414,7 +428,8 @@
     <MESSAGE value="added extra icons" />
     <MESSAGE value="fixed bugs in firefox" />
     <MESSAGE value="fixed otp decrypt" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed otp decrypt" />
+    <MESSAGE value="edgecase fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="edgecase fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -688,8 +703,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Introduction/Introduction.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+        <state relative-caret-position="-607">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
