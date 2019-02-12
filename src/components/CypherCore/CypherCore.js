@@ -20,7 +20,7 @@ class CypherCore extends Component {
   updateCryptData(element) {
     this.setState({
       ...this.state,
-      [element]: document.querySelector(`#cryption-${element}`).value,
+      [element]: document.querySelector(`#cryption-${element}`).value.toLowerCase(),
     });
   }
 
