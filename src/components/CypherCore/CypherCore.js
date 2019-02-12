@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './Introduction.scss';
+import './CypherCore.scss';
 import { connect } from 'react-redux';
 import { OTP, SHA2, MD5 } from '../../actions/types';
 import PropTypes from 'prop-types';
 const crypto = require('crypto');
 const sha512 = require('js-sha512');
 
-class Introduction extends Component {
+class CypherCore extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -99,7 +99,7 @@ class Introduction extends Component {
   }
 }
 
-Introduction.propTypes = {
+CypherCore.propTypes = {
   optEncrypt: PropTypes.bool,
   cryptionType: PropTypes.any,
 };
@@ -109,4 +109,4 @@ const mapStateToProps = state => ({
   cryptionType: state.encrypt.cryptionType,
 });
 
-export default connect(mapStateToProps)(Introduction);
+export default connect(mapStateToProps)(CypherCore);

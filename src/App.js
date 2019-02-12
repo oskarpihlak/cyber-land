@@ -4,7 +4,7 @@ import './App.scss';
 
 import Heading from './components/Heading/Heading.js';
 import Cyphering from './components/Cyphering/Cyphering';
-import Introduction from './components/Introduction/Introduction';
+import Introduction from './components/CypherCore/CypherCore';
 import Footer from './components/Footer/Footer';
 import Navigation from './components/Navigation/Navigation';
 
