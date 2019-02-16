@@ -3,8 +3,18 @@ const path = require('path');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 const logger = require('morgan');
+const ReverseMd5 = require('reverse-md5');
 const isDev = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 5000;
+
+const reverseMd5 = ReverseMd5({
+  lettersUpper: false,
+  lettersLower: true,
+  numbers: true,
+  special: false,
+  whitespace: true,
+  maxLen: 12
+});
 
 // Multi-process to utilize all CPU cores.
 if (!isDev && cluster.isMaster) {
@@ -28,7 +38,14 @@ if (!isDev && cluster.isMaster) {
   // Answer API requests.
   app.get('/api', function (req, res) {
     res.set('Content-Type', 'application/json');
+    res.status(200);
     res.send('{"message":"Hello from the custom server!"}');
+  });
+
+  app.post('/api/md5/decrypt/:hash', (req, res) =>{
+    res.set('Content-Type', 'application/json');
+    res.status(200);
+    res.send(reverseMd5(req.params.hash));
   });
 
   // All remaining requests return the React app, so it can handle routing.

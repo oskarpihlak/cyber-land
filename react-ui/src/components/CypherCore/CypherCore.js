@@ -12,8 +12,12 @@ class CypherCore extends Component {
     this.state = {
       message: null,
       key: null,
-      result: null,
+      result: {
+        elapsed:'',
+        str:'',
+      },
       alphabet: 'abcdefghijklmnopqrstuvwxyz',
+      loading: false
     };
   }
 
@@ -50,7 +54,7 @@ class CypherCore extends Component {
             const newCharCode = (this.state.alphabet.indexOf(this.state.message[i]) + this.state.alphabet.indexOf(this.state.key[i])) % 26;
             encryptedMessage += this.state.alphabet[newCharCode];
           }
-          this.setState({ ...this.state, result: encryptedMessage });
+          this.setState({ ...this.state, result: {str:encryptedMessage, elapsed: null}});
         }
       } else {
         let decryptedMessage = '';
@@ -59,20 +63,32 @@ class CypherCore extends Component {
           if (newCharCode < 0) newCharCode += 26;
           decryptedMessage += this.state.alphabet[newCharCode % 26];
         }
-        this.setState({ ...this.state, result: decryptedMessage });
+        this.setState({ ...this.state, result: {str:decryptedMessage, elapsed: null }});
       }
     } else {
-      this.setState({ ...this.state, result: 'INVALID REQUEST' });
+      this.setState({ ...this.state, result: {str:'INVALID REQUEST', elapsed: null }});
     }
   }
 
   sha2Encription() {
-    this.setState({...this.state, result: btoa(sha512('hello'))});
+    this.setState({...this.state, result: {str: btoa(sha512('hello')), elapsed: null}});
   }
 
   md5Encription() {
-    const md5 = crypto.createHash('md5').update(this.state.message).digest('hex', this.state.message);
-    this.setState({...this.state, result: md5});
+    if (this.props.optEncrypt) {
+      const md5 = crypto.createHash('md5').update(this.state.message).digest('hex', this.state.message);
+      this.setState({...this.state, result: {str:md5, elapsed: null }});
+    } else {
+      this.setState({...this.state, result: {str:'', elapsed: null}, loading:true});
+      fetch(`/api/md5/decrypt/${this.state.message}`, {method:'POST'}).then(response =>{
+        return response.json();
+      }).then(data=>{
+          console.log(data);
+        this.setState({...this.state, result: {str:data.str, elapsed: data.elapsed}, loading: false});
+      }).catch(error => {
+        console.error(error);
+      })
+      }
   }
 
   render() {
@@ -82,7 +98,7 @@ class CypherCore extends Component {
           <div className='description-grid__img'/>
         </div>
         <div className='description-grid__item--2'>
-          <p className='cryption__mode'>{this.props.cryptionType} {this.props.cryptionType === OTP ? ' - '
+          <p className='cryption__mode'>{this.props.cryptionType} {this.props.cryptionType === OTP || this.props.cryptionType === MD5 ? ' - '
             + (this.props.optEncrypt ? 'encrypt' : 'decrypt') : null}</p>
           <input id='cryption-message' className='description-grid__message' placeholder='Cryption message' type='text'
             onChange={() => {this.updateCryptData('message');}}/>
@@ -92,7 +108,13 @@ class CypherCore extends Component {
           <button className='btn__execute' onClick={() => {this.chooseCription();}}>
               Execute
           </button>
-          <p className='cryption-result'>{this.state.result}</p>
+          <div className='cryption-result'>
+            {console.log(this.state.result)}
+            {this.state.loading ? (<div className="lds-ripple"><div> </div><div> </div></div>) : null}
+            {this.props.cryptionType === MD5 && !this.props.optEncrypt ? (
+                <p>{this.state.result.elapsed}s<br/>{this.state.result.str}</p>)
+                : (<p>{this.state.result.str}</p>)}
+          </div>
         </div>
       </section>
     );
