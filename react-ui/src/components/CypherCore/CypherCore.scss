@@ -1,0 +1,112 @@
+@import "../../assets/scss/base";
+.description-grid{
+  display: grid;
+  grid-column: full-start/ full-end;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, 4vw);
+  grid-auto-flow: row;
+  grid-gap: 1.5rem;
+
+  &__item{
+    &--1{
+      position: relative;
+      grid-row: 1/span 7;
+      grid-column: 4/span 4;
+      @media (max-width: $bp-medium-large) {
+        grid-row: 5/span 15;
+        grid-column: 2/span 6;
+      }
+    }
+    &--2{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      grid-row: 1/span 7;
+      grid-column: 2/span 3;
+      background: linear-gradient(to bottom right, $color-primary, $color-primary-light);
+      clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+      @media (max-width: $bp-medium-large) {
+        grid-row: 1/span 4;
+        grid-column: 2/span 6;
+        clip-path: none;
+      }
+      @media (max-width: $bp-medium-large) {
+        height: max-content;
+      }
+    }
+  }
+  &__img{
+    background-image: url("../../assets/images/Threat-768x553.jpg"), linear-gradient(to bottom right, $color-primary-dark, $color-primary-light);
+    background-blend-mode: initial;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  &__message, &__key {
+    margin: 0.5rem 9rem 0.5rem 0.5rem;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    @media (max-width: $bp-medium-large) {
+      margin: 0.5rem;
+    }
+    &::placeholder{
+      font-family: $font-primary;
+      color: #939393;
+    }
+  }
+}
+.btn{
+  &__execute{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: $color-secondary;
+    border: none;
+    color: #fff;
+    transition: 900ms all;
+    margin: 0.5rem 9rem 0.5rem 0.5rem;
+    @media (max-width: $bp-medium-large) {
+      margin: 0.5rem;
+    }
+    &:hover{
+      background-color: #275378;
+    }
+    &__container{
+      display: flex;
+      flex-direction: row;
+      height: 4rem;
+    }
+  }
+}
+.cryption{
+  &__mode{
+    margin: 0.5rem 9rem 0.5rem 0.5rem;
+    color: #f7f7f7;
+    font-family: $font-display;
+    font-size: 3rem;
+    @media (max-width: $bp-medium-large) {
+      margin: 0.5rem;
+    }
+  }
+  &-result{
+    width: 60%;
+    margin-right: 9rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    height: max-content;
+    overflow-wrap: break-word;
+    color: #fff;
+    font-family: $font-display;
+    text-align: center;
+    @media (max-width: $bp-medium-large) {
+      margin: 0.5rem;
+      width: 80%;
+    }
+  }
+}
