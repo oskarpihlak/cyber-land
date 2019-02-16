@@ -84,9 +84,11 @@ class CypherCore extends Component {
         return response.json();
       }).then(data=>{
           console.log(data);
-        this.setState({...this.state, result: {str:data.str, elapsed: data.elapsed}, loading: false});
+        this.setState({...this.state, result: {str:data.str, elapsed: data.elapsed+"s"}, loading: false});
       }).catch(error => {
-        console.error(error);
+        console.log(error.toString());
+        console.log(JSON.stringify(error));
+        this.setState({...this.state, result: {str:'ERROR!', elapsed: null }, loading: false});
       })
       }
   }
@@ -112,7 +114,7 @@ class CypherCore extends Component {
             {console.log(this.state.result)}
             {this.state.loading ? (<div className="lds-ripple"><div> </div><div> </div></div>) : null}
             {this.props.cryptionType === MD5 && !this.props.optEncrypt ? (
-                <p>{this.state.result.elapsed}s<br/>{this.state.result.str}</p>)
+                <p>{this.state.result.elapsed}<br/>{this.state.result.str}</p>)
                 : (<p>{this.state.result.str}</p>)}
           </div>
         </div>
