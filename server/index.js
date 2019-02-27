@@ -8,12 +8,12 @@ const isDev = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 5000;
 
 const reverseMd5 = ReverseMd5({
-  lettersUpper: false,
+  lettersUpper: true,
   lettersLower: true,
   numbers: true,
-  special: false,
+  special: true,
   whitespace: true,
-  maxLen: 12
+  maxLen: 15
 });
 
 // Multi-process to utilize all CPU cores.
@@ -39,7 +39,7 @@ if (!isDev && cluster.isMaster) {
   app.get('/api', function (req, res) {
     res.set('Content-Type', 'application/json');
     res.status(200);
-    res.send('{"message":"Hello from the custom server!"}');
+    res.send({message:"Hello from the custom server!"});
   });
 
   app.post('/api/md5/decrypt/:hash', (req, res) =>{
