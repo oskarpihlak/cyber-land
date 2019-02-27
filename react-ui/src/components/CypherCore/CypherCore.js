@@ -71,7 +71,10 @@ class CypherCore extends Component {
   }
 
   sha2Encription() {
-    this.setState({...this.state, result: {str: btoa(sha512('hello')), elapsed: null}});
+    this.setState({...this.state, result: {str: btoa(sha512(this.state.message)), elapsed: null}});
+    if(this.state.message === 'tere' && btoa(sha512('tere') === "ZmYyYjUxN2VmNmE5ODYzYmY5M2YwYTkwOTNiZmVjNWY3ODg0ZmIxYmMyYTEwNGZhZDNiNWU2ODk2OTIwYzJmNTVlZGUwNDA=")) {
+    console.log('success sha512 works');
+    }
   }
 
   md5Encription() {
@@ -101,7 +104,8 @@ class CypherCore extends Component {
         </div>
         <div className='description-grid__item--2'>
           <p className='cryption__mode'>{this.props.cryptionType} {this.props.cryptionType === OTP || this.props.cryptionType === MD5 ? ' - '
-            + (this.props.optEncrypt ? 'encrypt' : 'decrypt') : null}</p>
+            + (this.props.optEncrypt ? 'encrypt' : 'decrypt') : ''}
+          </p>
           <input id='cryption-message' className='description-grid__message' placeholder='Cryption message' type='text'
             onChange={() => {this.updateCryptData('message');}}/>
           {this.props.cryptionType === OTP ? (
